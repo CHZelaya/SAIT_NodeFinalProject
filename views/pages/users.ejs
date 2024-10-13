@@ -7,14 +7,16 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <%- include('../partials/style.ejs') %>
         <title><%- PageTitle %></title>
-
 </head>
-
 <%- include('../partials/header.ejs') %>
 
     <body>
-        <h1>Home Page</h1>
+        <div class="container">
+            <form action="/search" method="GET" class="d-flex">
+                <input type="email" name="email" class="form-control me-2" placeholder="Search for your email" required>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
     </body>
-    <%- include('../partials/footer.ejs') %>
 
 </html>

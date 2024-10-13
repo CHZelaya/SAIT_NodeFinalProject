@@ -26,7 +26,7 @@ const Users = sequelize.define(
             allowNull: false,
         },
         phnumber: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
         },
         city: {
@@ -45,8 +45,11 @@ const Users = sequelize.define(
             type: DataTypes.STRING,
             allowNull: true,
         }
+    },
+    {
+        timestamps: false
     }
-)
+);
 
 
 module.exports = Users;

@@ -13,22 +13,25 @@
 
     <body>
         <div class="container mt-4" style="background-color: rgb(221, 221, 221);">
-
-            <form action="/submitcontact" method="POST">
+            <h1>Update information</h1>
+            <form action="/updateUser/<%= user.id %>" method="POST">
                 <div class="row">
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="fname" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="fname" name="fname">
+                            <input type="text" class="form-control" id="fname" name="fname"
+                                placeholder="<%= user.fname %>">
 
                         </div>
                         <div class="mb-3">
                             <label for="lname" class="form-label">Last Name</label>
-                            <input type="text" name="lname" class="form-control" id="lname">
+                            <input type="text" name="lname" class="form-control" id="lname"
+                                placeholder="<%= user.lname %>">
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
-                            <input type="email" name="email" class="form-control" id="email">
+                            <input type="email" name="email" class="form-control" id="email"
+                                placeholder="<%= user.email %>">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
 
@@ -36,25 +39,30 @@
                     <div class="col">
                         <div class="mb-3 mt-3">
                             <label for="phnumber" class="form-label">Phone Number</label>
-                            <input type="text" class="form-control" name="phnumber" id="phnumber">
+                            <input type="text" class="form-control" name="phnumber" id="phnumber"
+                                placeholder="<%= user.phnumber %>">
                         </div>
                         <div class="mb-3">
                             <label for="city" class="form-label">City</label>
-                            <input type="text" class="form-control" name="city" id="city">
+                            <input type="text" class="form-control" name="city" id="city"
+                                placeholder="<%= user.city %>">
                         </div>
                         <div class="mb-3">
                             <label for="province" class="form-label">Province</label>
-                            <input type="text" name="province" class="form-control" id="province">
+                            <input type="text" name="province" class="form-control" id="province"
+                                placeholder="<%= user.province %>">
                         </div>
                         <div class="mb-3">
                             <label for="postalcode" class="form-label">Postal Code</label>
-                            <input type="text" name="postalcode" class="form-control" id="postalcode">
+                            <input type="text" name="postalcode" class="form-control" id="postalcode"
+                                placeholder="<%= user.postalcode %>">
                         </div>
                     </div>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="feedback" class="form-label">Feedback</label>
-                    <input type="text" class="form-control feedback-field" id="feedback" name="feedback">
+                    <input type="text" class="form-control feedback-field" id="feedback" name="feedback"
+                        placeholder="<%= user.feedback %>">
                 </div>
 
 

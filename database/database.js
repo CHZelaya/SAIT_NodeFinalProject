@@ -18,7 +18,7 @@ sequelize.authenticate()
         console.log('Connection has been established succesfully')
     })
     .catch(err => {
-        console.error('Unable to connect to the databse:', error)
+        console.error('Unable to connect to the database:', error)
     })
 
 
