@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/header.ejs') %>
+
+    <body>
+        <div class="responsecontainer">
+            <div class="card" style="width: 30rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Thank You for Your Submission!</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Your Details:</h6>
+                    <p class="card-text"><strong>First Name:</strong>
+                        <%= results.fname %>
+                    </p>
+                    <p class="card-text"><strong>Last Name:</strong>
+                        <%= results.lname %>
+                    </p>
+                    <p class="card-text"><strong>Email:</strong>
+                        <%= results.email %>
+                    </p>
+                    <p class="card-text"><strong>Phone Number:</strong>
+                        <%= results.phnumber %>
+                    </p>
+                    <p class="card-text"><strong>City:</strong>
+                        <%= results.city %>
+                    </p>
+                    <p class="card-text"><strong>Province:</strong>
+                        <%= results.province %>
+                    </p>
+                    <p class="card-text"><strong>Postal Code:</strong>
+                        <%= results.postalcode %>
+                    </p>
+                    <p class="card-text"><strong>Feedback:</strong>
+                        <%= results.feedback %>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
+
+<!-- fname, lname, email, phnumber, city, province, postalcode, feedback -->
