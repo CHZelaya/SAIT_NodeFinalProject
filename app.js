@@ -4,9 +4,11 @@
  *  //Create partials
  *  Create a module that returns a random greeting.
  *  //Set up Database connection including: (first name and last name separate), email, phone number, city, province postal code, feedback message etc
- * Update user Method
- * Delete user Method
- * Style and theme website... as its just a blank canvas right now
+ * //Update user Method
+ * //Delete user Method
+ * //Style and theme website... as its just a blank canvas right now
+ * Form Validation
+ * Populate website with content
  *------------------------------------------------------------------------**/
 
 
@@ -46,7 +48,6 @@ app.get('/about', apiController.aboutPage);
 app.get('/contact', apiController.contactPage);
 app.get('/users', apiController.usersPage)
 app.get('/search', apiController.searchDB)
-// app.get('/thankyou', apiController.thankYouPage)
 app.get("/update/:id", apiController.updatePage)
 app.get('/delete/:id', apiController.deleteUser)
 

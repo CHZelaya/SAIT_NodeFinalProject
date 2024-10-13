@@ -18,30 +18,32 @@ sequelize.sync()
  *------------------------------------------------------------------------**/
 
 //? READ
+
+//*Load Home page
 exports.homePage = (req, res) => {
     res.render('../views/pages/index.ejs', { PageTitle: "HomePage" })
     console.log('homePage function is being called')
 }
 
+//*Load About Page
 exports.aboutPage = (req, res) => {
     res.render('../views/pages/aboutPage.ejs', { PageTitle: "About us" })
     console.log('aboutPage is being called successfully')
 }
 
+//*Load Contact Page
 exports.contactPage = (req, res) => {
     res.render('../views/pages/contactPage.ejs', { PageTitle: 'Contact us' })
     console.log('contactPage is being called successfully')
 }
 
-// exports.thankYouPage = (req, res) => {
-//     res.render('../views/pages/thankyou.ejs', { PageTitle: "Thank you!" })
-// }
-
+//*Load Users Page
 exports.usersPage = (req, res) => {
     res.render('../views/pages/users.ejs', { PageTitle: 'Users' })
     console.log('usersPage is being called successfully')
 }
 
+//* Load Update Page
 exports.updatePage = async (req, res) => {
     const userID = req.params.id
     console.log(`The user ID you're updating is ${userID}`)
@@ -50,7 +52,7 @@ exports.updatePage = async (req, res) => {
     console.log('updatePage is being called successfully')
 }
 
-
+//* Load Results Page
 exports.searchDB = async (req, res) => { // * Filter DB by email
     const { email } = req.query
 
@@ -59,7 +61,7 @@ exports.searchDB = async (req, res) => { // * Filter DB by email
             where: { email }
         });
 
-        if (user.length > 0) { // if the user is exists, render the results page and populate with user info.
+        if (user.length > 0) { //? if the user exists, render the results page and populate with user info. Load all users with the same email
             console.log(user);
             res.render('../views/pages/results.ejs', { users: user, PageTitle: 'Results' });
         } else {
