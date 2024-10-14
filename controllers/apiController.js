@@ -77,14 +77,16 @@ exports.searchDB = async (req, res) => { // * Filter DB by email
 //? DELETE
 
 exports.deleteUser = async (req, res) => {
-    await User.destroy({
+    const userID = req.params.id
+    if (!userID || isNaN(userID)) {
+        return res.status(400).json({ error: 'Invalid user ID' });
+    } else await User.destroy({
         where: {
             id: req.params.id
         }
     })
     res.render('../views/pages/index.ejs', { PageTitle: "HomePage" })
 }
-
 
 /**------------------------------------------------------------------------
  **                            "POST METHODS" (create, update)

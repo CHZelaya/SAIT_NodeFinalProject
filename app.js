@@ -8,7 +8,7 @@
  * //Delete user Method
  * //Style and theme website... as its just a blank canvas right now
  * Form Validation
- * Populate website with content
+ * //Populate website with content
  *------------------------------------------------------------------------**/
 
 

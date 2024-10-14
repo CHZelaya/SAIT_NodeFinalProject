@@ -8,15 +8,16 @@
     <%- include('../partials/style.ejs') %>
         <title><%- PageTitle %></title>
 </head>
-<%- include('../partials/header.ejs') %>
+<%- include('../partials/nav.ejs') %>
 
     <body>
-        <div class="container">
+        <div class="container users-container">
             <form action="/search" method="GET" class="d-flex">
                 <input type="email" name="email" class="form-control me-2" placeholder="Search for your email" required>
                 <button type="submit" class="btn btn-primary">Search</button>
             </form>
         </div>
     </body>
+    <%- include('../partials/footer.ejs') %>
 
 </html>

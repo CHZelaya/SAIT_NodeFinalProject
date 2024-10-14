@@ -5,9 +5,6 @@
 const { Sequelize, DataTypes } = require('sequelize');
 const sequelize = require('../database/database.js');
 
-// const sequelize = new Sequelize({
-//     dialect: 'mysql'
-// })
 
 const Users = sequelize.define(
     "Users",
