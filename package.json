@@ -13,9 +13,12 @@
   "devDependencies": {
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
+    "nodemon": "^3.1.7"
+  },
+  "dependencies": {
     "express": "^4.21.1",
     "mysql2": "^3.11.3",
-    "nodemon": "^3.1.7",
-    "sequelize": "^6.37.4"
+    "sequelize": "^6.37.4",
+    "validator": "^13.12.0"
   }
 }
