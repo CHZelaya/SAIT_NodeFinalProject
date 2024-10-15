@@ -7,7 +7,7 @@
  * //Update user Method
  * //Delete user Method
  * //Style and theme website... as its just a blank canvas right now
- * Form Validation
+ * //Form Validation
  * //Populate website with content
  *------------------------------------------------------------------------**/
 
@@ -55,8 +55,8 @@ app.get('/delete/:id', apiController.deleteUser)
 app.post('/submitcontact', apiController.submitContact)
 app.post('/updateUser/:id', apiController.updateUser)
 
-
-
+//*USE
+app.use(apiController.Page404)
 /**------------------------------------------------------------------------
  **                            INTIALIZE SERVER
  *------------------------------------------------------------------------**/
