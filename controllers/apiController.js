@@ -5,7 +5,6 @@ const User = require('../models/userModel')
 const sequelize = require('../database/database.js');
 const validator = require('validator')
 const greeting = require('../modules/greeting')
-const favicon = require('serve-favicon')
 sequelize.sync()
     .then(() => {
         console.log('Database Synced!')
@@ -18,19 +17,19 @@ sequelize.sync()
 /**------------------------------------------------------------------------
  **                            "GET" METHODS (read)
  *------------------------------------------------------------------------**/
-const passGreeting = greeting.chooseRandomGreeting()
+
 //? READ
 
 //*Load Home page
 exports.homePage = (req, res) => {
-
-    res.render('../views/pages/index.ejs', { PageTitle: "HomePage", passGreeting })
+    const passGreeting = greeting.chooseRandomGreeting()
+    res.render('./pages/index.ejs', { PageTitle: "HomePage", passGreeting })
     console.log('homePage function is being called')
 }
 
 //*Load About Page
 exports.aboutPage = (req, res) => {
-    res.render('../views/pages/aboutPage.ejs', { PageTitle: "About us" })
+    res.render('./pages/aboutPage.ejs', { PageTitle: "About us" })
     console.log('aboutPage is being called successfully')
 }
 
@@ -90,6 +89,7 @@ exports.searchDB = async (req, res) => { // * Filter DB by email
 //? DELETE
 
 exports.deleteUser = async (req, res) => {
+    const passGreeting = greeting.chooseRandomGreeting()
     const userID = req.params.id
     if (!userID || isNaN(userID)) {
         return res.status(400).json({ error: 'Invalid user ID' });

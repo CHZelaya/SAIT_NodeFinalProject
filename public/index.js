@@ -14,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-    document.querySelector('#contact-form').addEventListener('submit', function (event) {
+    document.querySelector('.btn').addEventListener('click', function (event) {
         event.preventDefault(); // Prevent the default form submission
-
+        console.log('click!')
         // Use querySelector to get the values of each input
         const fname = document.querySelector('#fname').value;
         const lname = document.querySelector('#lname').value;
@@ -63,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
         // If all validations pass, you can submit the form or perform further actions
-        this.submit(); // Submit the form if all validations are successful
+        const form = document.querySelector('form'); // Get the form element
+        form.submit();
     });
 
 })
