@@ -2,7 +2,7 @@
  * todo                             TODO
  *  //Create Home Page, About Page, Contact Page, 404 Page and Thank-You Page.
  *  //Create partials
- *  Create a module that returns a random greeting.
+ * // Create a module that returns a random greeting.
  *  //Set up Database connection including: (first name and last name separate), email, phone number, city, province postal code, feedback message etc
  * //Update user Method
  * //Delete user Method
@@ -22,8 +22,6 @@ const app = express();
 const apiController = require('./controllers/apiController.js');
 const favicon = require('serve-favicon')
 const path = require('path')
-// const sequelize = require('./database/database.js');
-// const User = require('./models/userModel')
 const { PORT } = process.env
 
 
@@ -51,7 +49,7 @@ app.get('/about', apiController.aboutPage);
 app.get('/contact', apiController.contactPage);
 app.get('/users', apiController.usersPage)
 app.get('/search', apiController.searchDB)
-app.get("/update/:id", apiController.updatePage)
+app.get('/update/:id', apiController.updatePage)
 app.get('/delete/:id', apiController.deleteUser)
 
 //*POST

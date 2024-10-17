@@ -1,23 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <%- include('../partials/style.ejs') %>
-        <title><%- PageTitle %></title>
-</head>
-<%- include('../partials/nav.ejs') %>
+<%- include('../partials/header.ejs') %>
 
     <body>
         <div class="container users-container">
             <h1>Registered Players</h1>
             <div class="mt-3 mb-3">
-                <form action="/search" method="GET" class="d-flex">
-                    <input type="email" name="email" class="form-control me-2" placeholder="Filter by email" required>
-                    <button type="submit" class="btn btn-primary">Search</button>
+                <form action="/search" method="GET" class="d-flex " id="user-form">
+                    <input type="email" id="user-email" name="email" class="form-control me-2 registered-form"
+                        placeholder="Filter by email" required>
+                    <button onclick="handleUserForm()" type="button" class="btn btn-primary"
+                        id="user-button">Search</button>
                 </form>
             </div>
             <div class="row">
@@ -50,7 +43,7 @@
                                 <p class="card-text"><strong>Feedback:</strong>
                                     <%= user.feedback %>
                                 </p>
-                                <a href=" /update/<%=user.id %>">Update</a>
+                                <a href="/update/<%= user.id %>">Update</a>
                                 <a href="/delete/<%= user.id %>">Delete</a>
                             </div>
                         </div>
@@ -58,6 +51,7 @@
                     <% }) %>
             </div>
         </div>
+
     </body>
     <%- include('../partials/footer.ejs') %>
 

@@ -1,16 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <%- include('../partials/style.ejs') %>
-        <title><%- PageTitle %></title>
-</head>
-
-<%- include('../partials/nav.ejs') %>
+<%- include('../partials/header.ejs') %>
 
     <body>
         <div class="container mt-4" style="background-color: rgb(221, 221, 221);">
@@ -93,12 +84,13 @@
                         </div>
 
                         <div class="mb-2 mt-2">
-                            <button type="button" class="btn btn-primary">Submit</button>
+                            <button onclick="handleContactForm()" type="button" id="contact-button"
+                                class="btn btn-primary contact-btn">Submit</button>
                         </div>
 
                     </form>
         </div>
-        <script src="index.js"></script>
+        <!-- <script src="index.js"></script> -->
     </body>
 
 
