@@ -4,7 +4,8 @@
 const User = require('../models/userModel')
 const sequelize = require('../database/database.js');
 const validator = require('validator')
-
+const greeting = require('../modules/greeting')
+const favicon = require('serve-favicon')
 sequelize.sync()
     .then(() => {
         console.log('Database Synced!')
@@ -17,12 +18,13 @@ sequelize.sync()
 /**------------------------------------------------------------------------
  **                            "GET" METHODS (read)
  *------------------------------------------------------------------------**/
-
+const passGreeting = greeting.chooseRandomGreeting()
 //? READ
 
 //*Load Home page
 exports.homePage = (req, res) => {
-    res.render('../views/pages/index.ejs', { PageTitle: "HomePage" })
+
+    res.render('../views/pages/index.ejs', { PageTitle: "HomePage", passGreeting })
     console.log('homePage function is being called')
 }
 
@@ -41,8 +43,9 @@ exports.contactPage = (req, res) => {
 }
 
 //*Load Users Page
-exports.usersPage = (req, res) => {
-    res.render('../views/pages/users.ejs', { PageTitle: 'Users' })
+exports.usersPage = async (req, res) => {
+    const users = await User.findAll();
+    res.render('../views/pages/users.ejs', { users, PageTitle: 'Users' })
     console.log('usersPage is being called successfully')
 }
 
@@ -55,7 +58,7 @@ exports.updatePage = async (req, res) => {
     console.log('updatePage is being called successfully')
 }
 
-//* Load Results Page
+//* Filter Users by email.
 exports.searchDB = async (req, res) => { // * Filter DB by email
     const { email } = req.query
 
@@ -66,7 +69,7 @@ exports.searchDB = async (req, res) => { // * Filter DB by email
 
         if (user.length > 0) { //? if the user exists, render the results page and populate with user info. Load all users with the same email
             console.log(user);
-            res.render('../views/pages/results.ejs', { users: user, PageTitle: 'Results' });
+            res.render('../views/pages/users.ejs', { users: user, PageTitle: 'Results' });
         } else {
             res.render('../views/pages/noUser.ejs', { PageTitle: "No user found" })
         }
@@ -95,7 +98,7 @@ exports.deleteUser = async (req, res) => {
             id: req.params.id
         }
     })
-    res.render('../views/pages/index.ejs', { PageTitle: "HomePage" })
+    res.render('../views/pages/index.ejs', { PageTitle: "HomePage", passGreeting })
 
 
 

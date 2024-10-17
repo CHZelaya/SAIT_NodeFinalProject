@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.png" type="image/x-icon">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <%- include('../partials/style.ejs') %>
         <title><%- PageTitle %></title>
@@ -16,6 +17,9 @@
         <div class="container">
             <h1>Welcome to Alberta's Competitive Paintball Scene</h1>
             <p>Experience the thrill of competitive paintball!</p>
+            <h5 class="text-center">
+                <%= passGreeting %>
+            </h5>
             <div class="row">
                 <div class="col-md-6">
                     <img src="/images/2022-07-17 - Fly Free Photography-033.jpg" alt="Competitive Paintball Player"

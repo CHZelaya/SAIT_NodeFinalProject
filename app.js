@@ -19,12 +19,13 @@
 require('dotenv').config()
 const express = require('express');
 const app = express();
-
 const apiController = require('./controllers/apiController.js');
-const sequelize = require('./database/database.js');
-const User = require('./models/userModel')
-// const bodyparser = require('bodyparser');
+const favicon = require('serve-favicon')
+const path = require('path')
+// const sequelize = require('./database/database.js');
+// const User = require('./models/userModel')
 const { PORT } = process.env
+
 
 
 
@@ -33,8 +34,10 @@ const { PORT } = process.env
  *------------------------------------------------------------------------**/
 app.set('view engine', 'ejs');
 app.use(express.static('public'))
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.png')))
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
 
 
 
@@ -43,7 +46,7 @@ app.use(express.json());
  *------------------------------------------------------------------------**/
 
 //*GET
-app.get('/', apiController.homePage);
+app.get('/', apiController.homePage,);
 app.get('/about', apiController.aboutPage);
 app.get('/contact', apiController.contactPage);
 app.get('/users', apiController.usersPage)
