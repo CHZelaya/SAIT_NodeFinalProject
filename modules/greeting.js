@@ -4,12 +4,14 @@
 exports.chooseRandomGreeting = (video_game_greetings) => {
     video_game_greetings = [
         "It's-a me, Mario!",
+        "Ah...The boy who lived!",
         "Hello, is it me you're looking for?",
         "Welcome back, Commander!",
         "Hey! Listen!",
         "Greetings, traveler!",
         "What's up?",
-        "Welcome to the world of Pokémon!",
+        "Dobby has no master. Dobby is a free elf!",
+        "Welcome to the world of Paintball!",
         "Welcome, hero! The realm awaits your courage!",
         "Ah, a new challenger has arrived!",
         "Greetings, brave adventurer! Ready for your quest?",
@@ -46,7 +48,7 @@ exports.chooseRandomGreeting = (video_game_greetings) => {
         "Prepare to conquer new worlds!",
         "Your journey towards greatness starts now!"
     ];
-    let randomNumber = Math.floor(Math.random() * 39) + 1;
+    let randomNumber = Math.floor(Math.random() * 41) + 1;
     let greeting = video_game_greetings[randomNumber];
     return greeting
 }

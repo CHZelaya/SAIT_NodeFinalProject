@@ -2,6 +2,10 @@
 <html lang="en">
 <%- include('../partials/header.ejs') %>
 
+
+    <!--TODO: Instructions: Using MySQL, display all the contact entries in the database. Only the name, email and feedback message should be displayed on a page -->
+
+
     <body>
         <div class="container users-container">
             <h1>Registered Players</h1>
@@ -27,18 +31,6 @@
                                 </p>
                                 <p class="card-text"><strong>Email:</strong>
                                     <%= user.email %>
-                                </p>
-                                <p class="card-text"><strong>Phone Number:</strong>
-                                    <%= user.phnumber %>
-                                </p>
-                                <p class="card-text"><strong>City:</strong>
-                                    <%= user.city %>
-                                </p>
-                                <p class="card-text"><strong>Province:</strong>
-                                    <%= user.province %>
-                                </p>
-                                <p class="card-text"><strong>Postal Code:</strong>
-                                    <%= user.postalcode %>
                                 </p>
                                 <p class="card-text"><strong>Feedback:</strong>
                                     <%= user.feedback %>

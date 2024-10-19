@@ -1,5 +1,10 @@
 # SAIT_NodeFinalProject
-
+/**-----------------------------------------------------------------------------------------------------------------------
+ * ?                                                     ABOUT
+ * @author         :  Carlos Hernandez-Zelaya
+ * @email          :  carlos.HernandezZelaya@edu.sait.ca
+ * @repo           :  https://github.com/CHZelaya/SAIT_NodeFinalProject.git
+ *-----------------------------------------------------------------------------------------------------------------------**/
 
 This is the final project for the SAIT Web Development Course (Node.js). The project is a simple web application that allows users to create, read, update, and delete users from a database. The application also has a simple API that allows users to interact with the database.
 Since the theme of the application was to be of our choosing, I decided to create a simple page on Tournament Paintball, where a player could view information on the League and register themselves for the upcoming event. The user can also view the current list of registered players and update their information if needed.
