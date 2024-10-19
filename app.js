@@ -1,17 +1,3 @@
-/**------------------------------------------------------------------------
- * todo                             TODO
- *  //Create Home Page, About Page, Contact Page, 404 Page and Thank-You Page.
- *  //Create partials
- * // Create a module that returns a random greeting.
- *  //Set up Database connection including: (first name and last name separate), email, phone number, city, province postal code, feedback message etc
- * //Update user Method
- * //Delete user Method
- * //Style and theme website... as its just a blank canvas right now
- * //Form Validation
- * //Populate website with content
- *------------------------------------------------------------------------**/
-
-
 
 /**------------------------------------------------------------------------
  **                            EXPRESS/IMPORTS

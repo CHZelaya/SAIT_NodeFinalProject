@@ -202,7 +202,7 @@ exports.submitContact = async (req, res) => {
 exports.updateUser = async (req, res) => {
 
     const { fname, lname, email, phnumber, city, province, postalcode, feedback } = req.body
-
+    const id = req.params.id
     const errors = []; // Array to store errors (if any)
 
     //Validate first name length
@@ -242,26 +242,21 @@ exports.updateUser = async (req, res) => {
     }
 
     if (errors.length > 0) {
-        return res.render('../views/pages/updateUser.ejs', { errors, PageTitle: "Update Information" })
+        return res.render('../views/pages/updatePage.ejs', { errors, PageTitle: "Update Information" })
     } else {
 
 
-
-        const results = { fname, lname, email, phnumber, city, province, postalcode, feedback }
-
+        const updatedResults = { fname, lname, email, phnumber, city, province, postalcode, feedback }
 
         try {
-            const newUser = await User.create({
-                fname,
-                lname,
-                email,
-                phnumber,
-                city,
-                province,
-                postalcode,
-                feedback
+            await User.update(updatedResults, {
+                where: {
+                    id: id
+                }
             });
-            res.render('../views/pages/thankyou.ejs', { PageTitle: 'Thankyou!', results: results, errors })
+            //Finding updated user by ID and populating data with newly updated Database info.
+            const updatedUser = await User.findByPk(id);
+            res.render('../views/pages/thankyou.ejs', { PageTitle: 'Thankyou!', results: updatedUser, errors: [] })
 
 
         } catch (error) {

@@ -19,7 +19,6 @@ const feedbackRegex = /^[^(){}<>]{1,500}$/; // Allows any character except (), {
 const handleContactForm = () => {
 
     event.preventDefault(); // Prevent the default form submission
-    console.log('click!')
     // Use querySelector to get the values of each input
     const fname = document.querySelector('#fname').value;
     const lname = document.querySelector('#lname').value;
@@ -81,7 +80,6 @@ const handleContactForm = () => {
 const handleUserForm = () => {
 
     event.preventDefault(); // Prevent the default form submission
-    console.log('click!')
     // Use querySelector to get the values of each input
 
     const email = document.querySelector('#user-email').value;
