@@ -6,78 +6,95 @@
     <body>
         <div class="container mt-4" style="background-color: rgb(221, 221, 221);">
             <h1><strong>Register with us to recieve information on tournaments</strong></h1>
+            <!--! Handle errors from back end server. -->
+            <% if (errors && errors.length> 0) { %>
+                <div class="error-messages">
+                    <ul>
+                        <% errors.forEach(error=> { %>
+                            <li>
+                                <%= error %>
+                            </li>
 
-            <div class="container mt-4" style="background-color: rgb(221, 221, 221);">
-                <h1>Update information</h1>
-                <form id="contact-form" action="/updateUser/<%= user.id %>" method="POST">
-                    <div class="row">
-                        <div class="col">
-                            <div class="mb-3 mt-3">
-                                <label for="fname" class="form-label">First Name</label>
-                                <input type="text" class="form-control" id="fname" name="fname"
-                                    placeholder="<%= user.fname %>">
+                            <% });%>
 
-                            </div>
-                            <div class="mb-3">
-                                <label for="lname" class="form-label">Last Name</label>
-                                <input type="text" name="lname" class="form-control" id="lname"
-                                    placeholder="<%= user.lname %>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="email" name="email" class="form-control" id="email"
-                                    placeholder="<%= user.email %>">
-                                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.
+                    </ul>
+                </div>
+                <% } %>
+
+                    <!--! End section on error logic -->
+
+                    <div class="container mt-4" style="background-color: rgb(221, 221, 221);">
+                        <h1>Update information</h1>
+                        <form id="contact-form" action="/updateUser/<%= user.id %>" method="POST">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="fname" class="form-label">First Name</label>
+                                        <input type="text" class="form-control" id="fname" name="fname"
+                                            placeholder="<%= user.fname %>">
+
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="lname" class="form-label">Last Name</label>
+                                        <input type="text" name="lname" class="form-control" id="lname"
+                                            placeholder="<%= user.lname %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="<%= user.email %>">
+                                        <div id="emailHelp" class="form-text">We'll never share your email with anyone
+                                            else.
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col">
+                                    <div class="mb-3 mt-3">
+                                        <label for="phnumber" class="form-label">Phone Number</label>
+                                        <input type="text" class="form-control" name="phnumber" id="phnumber"
+                                            placeholder="<%= user.phnumber %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="city" class="form-label">City</label>
+                                        <input type="text" class="form-control" name="city" id="city"
+                                            placeholder="<%= user.city %>">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="province" class="form-label">Province</label>
+                                        <select type="text" name="province" class="form-control" id="province" required>
+                                            <option value="AB">Alberta (AB)</option>
+                                            <option value="BC">British Colombia (BC)</option>
+                                            <option value="MB">Manitoba (MB)</option>
+                                            <option value="NL">New Brunswick (NB)</option>
+                                            <option value="NS">Newfoundland & Labrador (NL)</option>
+                                            <option value="ON">Ontario (ON)</option>
+                                            <option value="PE">Prince Edward Island (PE)</option>
+                                            <option value="QC">Quebec (QC)</option>
+                                            <option value="SK">Saskatchewan (SK)</option>
+                                            <option value="NT">Northwest Territories (NT)</option>
+                                            <option value="NU">Nunavut (NU)</option>
+                                            <option value="YT">Yukon (YT)</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="postalcode" class="form-label">Postal Code</label>
+                                        <input type="text" name="postalcode" class="form-control" id="postalcode"
+                                            placeholder="<%= user.postalcode %>" required>
+                                    </div>
                                 </div>
                             </div>
-
-                        </div>
-                        <div class="col">
                             <div class="mb-3 mt-3">
-                                <label for="phnumber" class="form-label">Phone Number</label>
-                                <input type="text" class="form-control" name="phnumber" id="phnumber"
-                                    placeholder="<%= user.phnumber %>">
+                                <label for="feedback" class="form-label">Feedback</label>
+                                <textarea type="text" class="form-control feedback-field" id="feedback" name="feedback"
+                                    rows="5" required> <%= user.feedback %></textarea>
                             </div>
-                            <div class="mb-3">
-                                <label for="city" class="form-label">City</label>
-                                <input type="text" class="form-control" name="city" id="city"
-                                    placeholder="<%= user.city %>">
-                            </div>
-                            <div class="mb-3">
-                                <label for="province" class="form-label">Province</label>
-                                <select type="text" name="province" class="form-control" id="province" required>
-                                    <option value="AB">Alberta (AB)</option>
-                                    <option value="BC">British Colombia (BC)</option>
-                                    <option value="MB">Manitoba (MB)</option>
-                                    <option value="NL">New Brunswick (NB)</option>
-                                    <option value="NS">Newfoundland & Labrador (NL)</option>
-                                    <option value="ON">Ontario (ON)</option>
-                                    <option value="PE">Prince Edward Island (PE)</option>
-                                    <option value="QC">Quebec (QC)</option>
-                                    <option value="SK">Saskatchewan (SK)</option>
-                                    <option value="NT">Northwest Territories (NT)</option>
-                                    <option value="NU">Nunavut (NU)</option>
-                                    <option value="YT">Yukon (YT)</option>
-                                </select>
-                            </div>
-                            <div class="mb-3">
-                                <label for="postalcode" class="form-label">Postal Code</label>
-                                <input type="text" name="postalcode" class="form-control" id="postalcode"
-                                    placeholder="<%= user.postalcode %>" required>
-                            </div>
-                        </div>
+
+
+                            <button onclick="handleContactForm()" type="button" class="btn btn-primary">Submit</button>
+
+                        </form>
                     </div>
-                    <div class="mb-3 mt-3">
-                        <label for="feedback" class="form-label">Feedback</label>
-                        <textarea type="text" class="form-control feedback-field" id="feedback" name="feedback" rows="5"
-                            required> <%= user.feedback %></textarea>
-                    </div>
-
-
-                    <button onclick="handleContactForm()" type="button" class="btn btn-primary">Submit</button>
-
-                </form>
-            </div>
         </div>
 
     </body>

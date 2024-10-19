@@ -46,10 +46,11 @@ exports.usersPage = async (req, res) => {
 
 //* Load Update Page
 exports.updatePage = async (req, res) => {
+    const errors = []
     const userID = req.params.id
     console.log(`The user ID you're updating is ${userID}`)
     const user = await User.findByPk(userID)
-    res.render('../views/pages/updatePage.ejs', { user, PageTitle: 'Update Information' })
+    res.render('../views/pages/updatePage.ejs', { user, PageTitle: 'Update Information', errors })
     console.log('updatePage is being called successfully')
 }
 
@@ -240,13 +241,13 @@ exports.updateUser = async (req, res) => {
     if (!validator.isAlphanumeric) {
         errors.push('Invalid format in Feedback Field')
     }
-
+    const updatedResults = { id, fname, lname, email, phnumber, city, province, postalcode, feedback }
     if (errors.length > 0) {
-        return res.render('../views/pages/updatePage.ejs', { errors, PageTitle: "Update Information" })
+        return res.render('../views/pages/updatePage.ejs', { errors, PageTitle: "Update Information", user: updatedResults })
     } else {
 
 
-        const updatedResults = { fname, lname, email, phnumber, city, province, postalcode, feedback }
+        const updatedResults = { id, fname, lname, email, phnumber, city, province, postalcode, feedback }
 
         try {
             await User.update(updatedResults, {
